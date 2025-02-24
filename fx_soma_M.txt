@@ -1,0 +1,10 @@
+(x as number, y as number) =>
+
+let
+   soma = x + y
+in
+   soma
+
+//soma dois números. 
+//ex: ter a Coluna A e a Coluna B, e deseja somar as suas observações. x= [A], Y = [B] (adcionando uma coluna com a função)
+ 
