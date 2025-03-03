@@ -1,0 +1,11 @@
+(texto as text)=>
+let
+
+
+    caracter = " ",
+    quebra_texto = Text.Split(texto, " "),
+    exclui_branco = List.Select(quebra_texto, each _<>""),
+    resultado = Text.Combine(exclui_branco," ")
+
+in
+   resultado
