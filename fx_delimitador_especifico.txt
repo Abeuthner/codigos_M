@@ -1,0 +1,23 @@
+(texto as text, delimitador_desejado as text)=>
+
+let
+ 
+   ListaPossiveisDelimitadoores = {"/","\","|",";","-",":","","_"," ",",","."},
+   ListaDePara =List.Transform(ListaPossiveisDelimitadoores, each {_, delimitador_desejado}),
+   textoEmLista = Text.ToList(texto),
+   substituirItensDaLista = List.ReplaceMatchingItems(textoEmLista, ListaDePara),
+   ListaDuplicados = List.Transform(
+      List.Positions(substituirItensDaLista), each {
+                                                   substituirItensDaLista{_},
+                                                   try   
+                                                      substituirItensDaLista{_}=substituirItensDaLista{_+1}
+                                                      and substituirItensDaLista{_}=delimitador_desejado
+                                                   otherwise
+                                                         false 
+                                                   }
+                     ),
+   RemoveSeqDuplicada = List.Select(ListaDuplicados, each _{1}=false ),
+   descompactandoLista = List.Transform(RemoveSeqDuplicada, each _{0}),
+   resultado = Text.Combine(descompactandoLista)
+in
+     resultado
