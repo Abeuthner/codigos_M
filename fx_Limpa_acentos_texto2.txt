@@ -1,35 +1,35 @@
 (texto as text)=>
 let
-    
-    Letras = 
+
+    Letras =
     //  Escolher quais caracteres deseja manter
         {
-            " ", 
-            "A", 
-            "B", 
-            "C", 
-            "D", 
-            "E", 
-            "F", 
-            "G", 
-            "H", 
-            "I", 
-            "J", 
-            "K", 
-            "L", 
-            "M", 
-            "N", 
-            "O", 
-            "P", 
-            "Q", 
-            "R", 
-            "S", 
-            "T", 
-            "U", 
-            "V", 
-            "W", 
-            "X", 
-            "Y", 
+            " ",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
             "Z",
             "0",
             "1",
@@ -53,7 +53,7 @@ let
             ":"
         },
 
-    Substituir = 
+    Substituir =
     //  Escolher quais caracteres substiruir por quais
         {
             {"À","A"},
@@ -91,11 +91,11 @@ let
     retira_caracteres = List.ReplaceMatchingItems(lista_texto, Substituir),
     reordenando_texto = Text.Combine(retira_caracteres),
     seleciona_ok = Text.Select(reordenando_texto, Letras),
-    primeira_maiuscula = Text.Proper(seleciona_ok) 
+    primeira_maiuscula = Text.Proper(seleciona_ok)
 
 
 
-    
+
 
 in
    primeira_maiuscula
